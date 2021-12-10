@@ -20,6 +20,10 @@ public class Film {
         System.out.println("Film : "+nom+", Acteur Principal : "+acteurP+", Realisateur : "+realisateur+", Année de sortie : "+anneeSortie+", support : "+support+".");
     }
 
+    public String giveName(){
+        return this.nom;
+    }
+
     public void filmLoue(){
         if(dispo == true){
             dispo = false;
@@ -39,4 +43,5 @@ public class Film {
             System.out.println("Le film "+nom+" est déjà disponible.");
         }
     }
+
 }
