@@ -2,7 +2,7 @@ package com.epsi;
 
 public class Client {
 
-    private String nom;
+    public String nom;
     private String prenom;
     private String mail;
 

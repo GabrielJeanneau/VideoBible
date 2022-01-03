@@ -18,6 +18,20 @@ public class App {
         System.out.println("Le film a bien été supprimé.");
     }
 
+    static void louer(Film f, Client c){
+        f.filmLoue();;
+        f.locataire = c.nom;
+        System.gc();
+        System.out.println("Le film a bien été loué.");
+    }
+
+    static void rendre(Film f, Client c){
+        f.filmRendu();;
+        f.locataire = null;
+        System.gc();
+        System.out.println("Le film a bien été rendu.");
+    }
+
     static void addFilm(Vector v, Scanner sc){
         
         System.out.println("Entrez le titre du film : ");
@@ -34,6 +48,23 @@ public class App {
         Film f = new Film(nom, acteurP, realisateur, anneeSortie, support);
         System.out.println("Le film a été créé avec succès !");
     }
+
+    static void louerFilm(Vector v, Scanner sc, Client c, String name){
+        for(int i = 0; i < v.size(); i++){
+            if( ((Film)(v.elementAt(i))) .giveName() == name){
+                louer((Film)(v.elementAt(i)), c);
+            }
+        }
+    }
+
+    static void rendreFilm(Vector v, Scanner sc, Client c, String name){
+        for(int i = 0; i < v.size(); i++){
+            if( ((Film)(v.elementAt(i))) .giveName() == name){
+                rendre((Film)(v.elementAt(i)), c);
+            }
+        }
+    }
+
     public static void main(String[] args) throws Exception {
 
         Film film1 = new Film("SDA", "acteur1", "realisateur1", "2001", "DVD");
@@ -88,7 +119,15 @@ public class App {
 
         
         //Louer un film (Client)
+        System.out.println("Quel film voulez vous louer ?");
+        String titre = sc.nextLine();
+        louerFilm(v, sc, c, titre);
+        
 
+        //Rendre un film (Client)
+        System.out.println("Quel film voulez vous rendre ?");
+        String titre2 = sc.nextLine();
+        rendreFilm(v, sc, c, titre2);
 
         //Afficher les films loués par le client
         

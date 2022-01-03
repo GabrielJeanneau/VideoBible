@@ -6,7 +6,8 @@ public class Film {
     private String realisateur;
     private String anneeSortie;
     private String support;
-    private boolean dispo = true;
+    public boolean dispo = true;
+    public String locataire;
 
     public Film(String nom, String acteurP, String realisateur, String anneeSortie, String support){
         this.nom = nom;
