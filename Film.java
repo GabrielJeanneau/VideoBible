@@ -29,6 +29,14 @@ public class Film {
         return this.support;
     }
 
+    public String giveLocataire(){
+        return this.locataire;
+    }
+
+    public Boolean disponible(){
+        return this.dispo;
+    }
+
     public void filmLoue(){
         if(dispo == true){
             dispo = false;

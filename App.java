@@ -65,6 +65,23 @@ public class App {
         }
     }
 
+    static void filmDisponible(Vector v){
+
+        for(int i = 0; i < v.size(); i++){
+            if( ((Film)(v.elementAt(i))) .disponible() == true){
+                System.out.println(v);;
+            }
+        }
+    }
+
+    static void filmLoue(Vector v){
+
+        for(int i = 0; i < v.size(); i++){
+            if( ((Film)(v.elementAt(i))) .disponible() == false){
+                System.out.println(v);;
+            }
+        }
+    }
 
     static void listeFilmParSupport(Vector v, String supportUtiliser){
 
@@ -75,8 +92,15 @@ public class App {
         }
     }
 
-    
+    static void listFilmLoue(Vector v, Client c){
 
+        for(int i = 0; i < v.size(); i++){
+            if( ((Film)(v.elementAt(i))) .giveLocataire() == c.nom){
+                System.out.println(v);;
+            }
+        }
+    }
+    
     public static void main(String[] args) throws Exception {
 
         Film film1 = new Film("SDA", "acteur1", "realisateur1", "2001", "DVD");
@@ -125,8 +149,10 @@ public class App {
         deleteFilmByName(name, v);
 
         //Afficher la liste des films dispo et loué
-        
- 
+        System.out.println( "Les films disponibles sont : ");
+        filmDisponible(v);
+        System.out.println("Les films loués sont : ");
+        filmLoue(v);
     
 
         //Afficher la liste des films par support
@@ -147,5 +173,7 @@ public class App {
         rendreFilm(v, sc, c, titre2);
 
         //Afficher les films loués par le client
+        System.out.println("Voici la liste des films que vous avez loué :");
+        listFilmLoue(v, c);
     }
 }
