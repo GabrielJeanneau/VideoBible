@@ -65,7 +65,32 @@ public class App {
         Client c = new Client(nom, prenom, mail);
         c.show();
 
+        //Ajouter Film
+        System.out.println("Voulez vous ajouter un film ? (oui=1)");
+        int rep= sc.nextInt();
+        while(rep==1){
+            addFilm(v, sc);
+            System.out.println("Voulez vous ajouter un autre film ? (oui=1)");
+            if(sc.nextInt()!=1){
+                rep=0;
+            }
+        }
+        
+        //Supprimer un film par le nom
+        System.out.println("Quel film voulez vous suprimer ?");
+        String name = sc.nextLine();
+        deleteFilmByName(name, v);
 
+        //Afficher la liste des films dispo et loué
+        
+
+        //Afficher la liste des films par support
+
+        
+        //Louer un film (Client)
+
+
+        //Afficher les films loués par le client
         
     }
 }
